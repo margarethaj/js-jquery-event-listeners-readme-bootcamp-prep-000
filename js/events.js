@@ -1,32 +1,34 @@
 //define functions here
 
 function getIt(){
-  alert('Hey!');
+  $('p').on('click', function(){
+      alert('Hey!');
+  });
 }
 
 function frameIt(){
-  $('img').addClass('tasty');
+  $('img').on('load', function(){
+      $('img').addClass('tasty');
+  });
 }
 
 function pressIt(){
-  alert('you press G');
+  $('#typing').on('keydown', function(e){
+    if(e.which == 71){
+      alert('you press G');
+    }
+  });
+}
+
+function submitIt(){
+  alert("Your form is going to be submitted now.");
 }
 
 $(document).ready(function(){
 
 // call functions here
-  $('p').on('click', function(){
-    getIt();
-  });
-
-  $('img').on('load', function(){
-    frameIt();
-  });
-
-  $('#typing').on('keydown', function(e){
-    if(e.which == 71){
-      pressIt();
-    }
-  });
+getIt();
+frameIt();
+pressIt();
 
 });
